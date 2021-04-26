@@ -9,34 +9,12 @@ namespace DataStructures.src
 
 		static void Main(string[] args)
 		{
-			DynamicArray<int> arr = new(10);
+			Person p1 = new("John", "Snow");
 
-			for (uint i = 0; i < 4; i++)
-			{
-				arr.Add(rng.Next(-5, 5));
-			}
+			Chain<Person> chain = new Chain<Person>();
 
-			arr.Info();
-			foreach (var elem in arr)
-			{
-				Console.Write(elem + " ");
-			}
-			Console.WriteLine();
-
-
-			//arr.RemoveAt(0);
-			//arr.RemoveAt(0);
-			//arr.RemoveAt(0);
-			//arr.RemoveAt(0);
-
-			//arr.Clear();
-
-			arr.Info();
-			foreach (var elem in arr)
-			{
-				Console.Write(elem + " ");
-			}
-			Console.WriteLine();
+			chain.AddHead(p1);
+			chain.AddHead(new Person("Ad", "Cd"));
 		}
 	}
 }
