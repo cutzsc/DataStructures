@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace DataStructures.src
 {
@@ -9,21 +8,24 @@ namespace DataStructures.src
 
 		static void Main(string[] args)
 		{
-			CustomQueue<int> q = new CustomQueue<int>();
+			HashTable<int, string> table = new(3);
 
-			for (int i = 0; i < 10; i++)
+			for (int i = 0; i < 20; i++)
 			{
-				int a = rng.Next(-10, 10);
-				q.Enqueue(a);
-				Console.WriteLine(a);
+				string str = "";
+				if (i % 2 == 0)
+				{
+					str = $"String by: {i}";
+				}
+				else
+				{
+					str = $"Created with: {i}";
+				}
+
+				table.Add(i, str);
 			}
 
-			Console.WriteLine("===============");
-
-			while (q.Count > 0)
-			{
-				Console.WriteLine(q.Poll());
-			}
+			Console.WriteLine(table.Get(5));
 		}
 	}
 }
