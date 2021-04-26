@@ -86,18 +86,19 @@ namespace DataStructures.src
 			count++;
 		}
 
-		public void RemoveAt(in int offset)
+		public bool RemoveAt(in int offset)
 		{
 			if (offset >= count)
-				throw new ArgumentOutOfRangeException();
+				return false;
 
 			data[offset] = data[count - 1];
 			count--;
+			return true;
 		}
 
 		public int Remove(in T element)
 		{
-			for (int i = 0; i < Count; i++)
+			for (int i = 0; i < count; i++)
 			{
 				if (data[i].Equals(element))
 				{
@@ -120,7 +121,7 @@ namespace DataStructures.src
 		private void Resize()
 		{
 			T[] tmp = data;
-			capacity *= 2;
+			capacity = 1 + (int)(capacity * 0.3);
 			data = new T[capacity];
 			for (int i = 0; i < tmp.Length; i++)
 			{
