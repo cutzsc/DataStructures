@@ -11,10 +11,20 @@ namespace DataStructures.src
 		{
 			Person p1 = new("John", "Snow");
 
-			Chain<Person> chain = new Chain<Person>();
+			CustomStack<int> stack = new CustomStack<int>();
 
-			chain.AddHead(p1);
-			chain.AddHead(new Person("Ad", "Cd"));
+
+
+			for (int i = 0; i < 10; i++)
+			{
+				stack.Push(rng.Next(-10, 10));
+			}
+
+			
+			while (stack.Size > 0)
+			{
+				Console.WriteLine(stack.Pop());
+			}
 		}
 	}
 }
