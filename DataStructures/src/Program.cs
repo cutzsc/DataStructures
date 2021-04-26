@@ -9,21 +9,20 @@ namespace DataStructures.src
 
 		static void Main(string[] args)
 		{
-			Person p1 = new("John", "Snow");
-
-			CustomStack<int> stack = new CustomStack<int>();
-
-
+			CustomQueue<int> q = new CustomQueue<int>();
 
 			for (int i = 0; i < 10; i++)
 			{
-				stack.Push(rng.Next(-10, 10));
+				int a = rng.Next(-10, 10);
+				q.Enqueue(a);
+				Console.WriteLine(a);
 			}
 
-			
-			while (stack.Size > 0)
+			Console.WriteLine("===============");
+
+			while (q.Count > 0)
 			{
-				Console.WriteLine(stack.Pop());
+				Console.WriteLine(q.Poll());
 			}
 		}
 	}
